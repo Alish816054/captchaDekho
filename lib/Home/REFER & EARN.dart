@@ -29,71 +29,83 @@ class REFERANDEARN extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 40, left: 30),
-                        child: Text(
-                          "Refer now & earn",
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 22,
-                            fontFamily: "Volkhov",
-                            color: Colors.white,
+                  // Left Column for Text
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 40, left: 30),
+                          child: Text(
+                            "Refer now & earn",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 22,
+                              fontFamily: "Volkhov",
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 10),
-                        child: Row(
-                          children: [
-                            Text(
-                              "up to",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 22,
-                                fontFamily: "Volkhov",
-                                color: Colors.white,
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30, top: 10),
+                          child: Row(
+                            children: [
+                              Text(
+                                "up to",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 22,
+                                  fontFamily: "Volkhov",
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                            Text(
-                              " ₹500",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 22,
-                                fontFamily: "Volkhov",
-                                color: Colors.yellow,
+                              Text(
+                                " ₹500",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 22,
+                                  fontFamily: "Volkhov",
+                                  color: Colors.yellow,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+
+                  // Right Container with Image
                   Expanded(
-                    child: Container(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Stack(
-                          children: [
-                            Image.asset("assets/Circle.png"),
-                            Image.asset("assets/refer.png", width: 200),
-                          ],
+                    flex: 1,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: Image.asset(
+                              "assets/Circle.png",
+                              width: 400,
+                              height: 175,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
-                      ),
+                        Positioned(
+                          // left: 15,
+                          // top: 60,
+                          bottom: 0,
+                          right: 0,
+                          child: Image.asset("assets/refer.png", width: 130),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          // Row(children: []),
-          // Row(children: []),
-          // Row(children: []),
-          // Row(children: []),
-          // Row(children: []),
-          // Row(children: []),
-          // Row(children: []),
         ],
       ),
     );
