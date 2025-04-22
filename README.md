@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # captchadekho
 
 A new Flutter project.
@@ -14,3 +15,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# captchaDekho
+flutter project
+>>>>>>> e220a37b78f931b65286db1a4d5c17be318e593a
