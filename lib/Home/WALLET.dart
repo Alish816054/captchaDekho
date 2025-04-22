@@ -10,6 +10,38 @@ class WALLET extends StatefulWidget {
 
 class _WALLETState extends State<WALLET> with TickerProviderStateMixin {
   late TabController tabController;
+  List<Map<String, dynamic>> Transactiondata = [
+    {
+      "Transaction": "Signup bonus",
+      "date_time": "05 December 11:04 AM",
+      "coin": "+150",
+    },
+    {
+      "Transaction": "Captcha Reward",
+      "date_time": "05 December 11:04 AM",
+      "coin": "+100",
+    },
+    {
+      "Transaction": "Signup bonus ",
+      "date_time": "07 December 11:04 AM",
+      "coin": "+99",
+    },
+    {
+      "Transaction": "Signup bonus ",
+      "date_time": "07 December 11:04 AM",
+      "coin": "+10",
+    },
+    {
+      "Transaction": "Signup bonus ",
+      "date_time": "07 December 11:04 AM",
+      "coin": "+109",
+    },
+    {
+      "Transaction": "Signup bonus ",
+      "date_time": "07 December 11:04 AM",
+      "coin": "+150",
+    },
+  ];
 
   @override
   void initState() {
@@ -116,7 +148,7 @@ class _WALLETState extends State<WALLET> with TickerProviderStateMixin {
           // TabBar
           TabBar(
             controller: tabController,
-            indicatorColor: Colors.deepPurple,
+            indicatorColor: Color(0XFF3F857C),
             indicatorWeight: 3,
             indicatorSize: TabBarIndicatorSize.tab,
             labelColor: Colors.black,
@@ -125,12 +157,74 @@ class _WALLETState extends State<WALLET> with TickerProviderStateMixin {
           ),
 
           // TabBarView
+          // Expanded(
+          //   child:
+          //   TabBarView(
+          //     controller: tabController,
+          //     children:[
+          //       Center(child: Text("Transaction Details")),
+          //       Center(child: Text("Redeem History")),
+          //     ],
+          //   ),
+          // ),
+
+          // Expanded(
+          //   child: ListView.builder(
+          //     itemBuilder: (context, index) {
+          //       return TabBarView(
+          //         controller: tabController,
+          //         children: [
+          //           ListTile(
+          //             title: Text(Transactiondata[index]["Transaction"]),
+          //             subtitle: Text(Transactiondata[index]["date_time"]),
+          //             trailing: Image.asset("assets/dollar.png"),
+          //           ),
+          //         ],
+          //       );
+          //     },
+          //     itemCount: Transactiondata.length,
+          //   ),
+          // ),
           Expanded(
             child: TabBarView(
               controller: tabController,
-              children: const [
-                Center(child: Text("Transaction Details")),
-                Center(child: Text("Redeem History")),
+              children: [
+                // 🟢 Transactions Tab
+                ListView.builder(
+                  itemCount: Transactiondata.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        Transactiondata[index]["Transaction"],
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(Transactiondata[index]["date_time"]),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            Transactiondata[index]["coin"],
+                            style: const TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ), // 🟣 spacing between coin and image
+                          Image.asset(
+                            "assets/dollar.png",
+                            height: 25,
+                            width: 25,
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+
+                // 🔵 Redeems Tab
+                const Center(child: Text("Redeem History")),
               ],
             ),
           ),
